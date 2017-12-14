@@ -1,0 +1,11 @@
+cat_point,id,code,code_roof,class,osm,class_num,roof_num,seg_id,remove
+4,57,bu,bl,Buildings,0,11,110,4796338,no
+362,1231,bu,br,Buildings,0,11,113,7940218,no
+475,1771,bu,gr,Buildings,0,11,115,1331808,no
+591,115,wh,-,White/grey bare soil,0,22,220,1614448,no
+592,117,mix,-,Mixed bare soil/vegetation,0,32,320,1723485,no
+1028,510,as,-,Asphalt surfaces,1,14,140,14748323,no
+1134,570,ve,-,Other vegetation,0,34,340,14042716,no
+1139,572,as,-,Asphalt surfaces,1,14,140,1869174,no
+1143,574,mix,-,Mixed bare soil/vegetation,0,32,320,1900702,no
+1354,704,ve,-,Other vegetation,0,34,340,12742919,no
