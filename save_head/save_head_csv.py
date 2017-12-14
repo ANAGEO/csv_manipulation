@@ -7,7 +7,7 @@ import os
 import tempfile
 import shutil
 
-def savecsvhead(filepath, saveoutput, nbrline):
+def savecsvhead(filepath, saveoutput, nbrline=0):
     temp_path=os.path.join(tempfile.gettempdir(),"tempfile.csv")
     tmp=open(temp_path,"w")
     count=0
@@ -23,7 +23,7 @@ def savecsvhead(filepath, saveoutput, nbrline):
 # Test with header + 0 lines
 filepath="test_files/test.csv"
 saveoutput="test_files/savecsvhead_test_results_0lines.csv"
-savecsvhead(filepath, saveoutput, 0)
+savecsvhead(filepath, saveoutput)
 
 # Test with header + 10 lines
 saveoutput="test_files/savecsvhead_test_results_10lines.csv"
