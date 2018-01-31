@@ -11,10 +11,13 @@ def natural_keys(text):   #     Trick was found here: https://stackoverflow.com/
     import re  #Import needed library
     return [ atoi(c) for c in re.split('(\d+)', text) ]  #Split the string
 
-def join_2csv(file1,file2,separator=";",join='inner'):
+def join_2csv(file1,file2,separator=";",join='inner',fillempty='NULL'):
     '''
     Function that join two csv files according to the first column (primary key).
-    'join' parameter wait either for 'left' or 'inner' according to type of join
+    'file1' and 'file2' wait for complete path (strings) to the corresponding files. Please not that 'file1' is assume to be the left-one in the join
+	'separator' wait for the character to be considered as .csv delimiter (string)
+	'join' parameter wait either for 'left' or 'inner' according to type of join
+	'fillempty' wait for the string to be use to fill the blank when no occurance is found for the join operation
     '''
     import tempfile,csv,os
     header_list=[]
@@ -52,11 +55,11 @@ def join_2csv(file1,file2,separator=";",join='inner'):
         try:
             [new_row.append(value) for value in values_dict1[key]]
         except:
-            [new_row.append("NULL") for x in header_list1[1:]]
+            [new_row.append('%s'%fillempty) for x in header_list1[1:]]
         try:
             [new_row.append(value) for value in values_dict2[key]]
         except:
-            [new_row.append("NULL") for x in header_list2]
+            [new_row.append('%s'%fillempty) for x in header_list2]
         new_content.append(new_row)
     #Return the result
     outfile=os.path.join(tempfile.gettempdir(),"temp")
