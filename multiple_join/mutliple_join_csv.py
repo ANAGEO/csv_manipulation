@@ -67,7 +67,7 @@ def join_2csv(file1,file2,separator=";",join='inner',fillempty='NULL'):
     writer.writerows(new_content) #Write multiples rows in the file
     return outfile
 
-def join_multiplecsv(fileList,outfile,separator=";",join='left',overwrite=False):
+def join_multiplecsv(fileList,outfile,separator=";",join='inner', fillempty='NULL', overwrite=False):
     '''
     Function that apply join on multiple csv files
     '''
@@ -87,11 +87,11 @@ def join_multiplecsv(fileList,outfile,separator=";",join='left',overwrite=False)
         # Left join on the two first files
         file1=queue_list.pop(0)
         file2=queue_list.pop(0)
-        tmp_file=join_2csv(file1,file2,separator=separator,join=join)
+        tmp_file=join_2csv(file1,file2,separator=separator,join=join, fillempty=fillempty)
         # Left join on the rest of the files in the list
         while len(queue_list)>0:
             file2=queue_list.pop(0)
-            tmp_file=join_2csv(tmp_file,file2,separator=separator,join=join)
+            tmp_file=join_2csv(tmp_file,file2,separator=separator,join=join, fillempty=fillempty)
         #Copy the temporary file to the desired output path
         shutil.copy2(tmp_file,outfile)
         # Print what happend
