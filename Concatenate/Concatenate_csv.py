@@ -1,4 +1,4 @@
-## Function which concatenate all individual .csv files each others
+## Function which concatenate (stack them vertically) several individual .csv files each others
 # The argument "indir" wait for a string containing the path to the directory where the individual .csv files are stored.
 # The argument "pattern" wait for a string containing the pattern of filename to use. Use wildcards is possible (*.csv for all .csv files)
 # The argument "outfile" wait for a string containing the path to the output file to create.
@@ -28,7 +28,7 @@ def concatenate(indir,pattern,outfile,overwrite=False):
                     for filename in fileList[1:]:
                         output_message+="Working on "+str(filename)+"\n"
                         f=open(filename)
-                        f.next() # skip the header
+                        f.next() # skip the header when not the first file
                         for line in f:
                             concatcsv.write(line)
                             countline+=1

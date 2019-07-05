@@ -4,6 +4,7 @@
 
 import os
 import tempfile
+import pandas as pd
 
 def showcsvhead(filepath, nbrline):
     temp_path=tempfile.gettempdir()+"\\tempfile.csv"

@@ -1,4 +1,4 @@
-## Function which find specific value and replace it by another. It also count the number of 
+## Function which find specific value and replace it by another. It can also just count the number of values founded.
 # Either a new .csv file is created with the updated values or the replacement is made inside the current .csv file a new .csv file with only specifics rows, according to specified values for the first row (primary key)
 # The argument "findreplacedict" wait for a dictionary with find value as key and the replacing text as value.
 # The argument "originalcsv" wait for a string containing the path to the .csv file from which selection will be made.

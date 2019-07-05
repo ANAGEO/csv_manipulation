@@ -1,10 +1,11 @@
-## Function which concatenate individual .csv files stored in a folder. 
+""" Function which concatenate (stack them vertically) several individual .csv files each others. The function allows 
+also to replace some values at the same time. Values to replace should be provided in a python dictionary with key=value correspondance.
 # 'indir' parameter wait for a string with the path to the repertory to look for individual .csv files
 # 'pattern' parameter wait for a string with the pattern of filename to look for (example: "TMP_*.csv")
 # 'sep' parameter wait for a string with the delimiter of the .csv file
 # 'replacedict' parameter wait for a dictionary containing the unwanted values as keys and the replace string as corresponding value
 # 'outputfilename' parameter wait for the name of the outputfile (including extansion but without the complete path)
-
+"""
 import os
 import glob
 import csv
