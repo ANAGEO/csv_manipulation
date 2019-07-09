@@ -33,12 +33,15 @@ def CutCsv(input_csv, indexcol=False, nb_col_from_end=False):
         index_start = nb_columns-nb_col_from_end
     #Extract first and several specific columns whose indexes are provided in 'indexcol' 
     if indexcol and not nb_col_from_end:
-        subprocess.Popen(("cut -d, -f1,%s %s"%(','.join(indexcol),input_csv)).split(), stdout=f)
+        cut_process =  subprocess.Popen(("cut -d, -f1,%s %s"%(','.join(indexcol),input_csv)).split(), stdout=f)
+        cut_process.wait()
     #Extract first and the X last columns according to the value provided in 'nb_col_from_end' 
     if nb_col_from_end and not indexcol:
-        subprocess.Popen(("cut -d, -f1,%s-%s %s"%(index_start,nb_columns,input_csv)).split(), stdout=f)
+        cut_process =  subprocess.Popen(("cut -d, -f1,%s-%s %s"%(index_start,nb_columns,input_csv)).split(), stdout=f)
+        cut_process.wait()
     #Extract first column, several specific columns ('indexcol') and the X last columns ('nb_col_from_end') 
     if nb_col_from_end and indexcol:
-        subprocess.Popen(("cut -d, -f1,%s,%s-%s %s"%(','.join(indexcol),index_start,nb_columns,input_csv)).split(), stdout=f)
+        cut_process =  subprocess.Popen(("cut -d, -f1,%s,%s-%s %s"%(','.join(indexcol),index_start,nb_columns,input_csv)).split(), stdout=f)
+        cut_process.wait()
     f.close()
     return cut_csv
